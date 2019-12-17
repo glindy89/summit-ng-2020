@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="storeWebApp">
+
+  <head>
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">	
+
+	<!-- Meta-information -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Teehugger Tees">
+    <meta name="author" content="Teehugger Tees">
+    
+    <!-- Data layer value storage -->
+    <meta name="pagename" content="{{pagename}}">
+    <meta name="pagetype" content="{{pagetype}}">
+	<meta name="sitesection" content="{{sitesection}}">
+	<meta name="sitesubsection" content="{{sitesubsection}}">
+	<meta name="category" content="{{category}}">
+	<meta name="productid" content="{{productid}}">
+	<meta name="productname" content="{{productname}}">
+	<meta name="revenue" content="{{revenue}}">
+	<meta name="producttotalrevenue" content="{{producttotalrevenue}}">
+	<meta name="producttotalunits" content="{{producttotalunits}}">
+	<meta name="purchaseID" content="{{purchaseID}}">
+
+    <title>Shop TEEhuggers</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    
+    <!-- Angular, followed by custom JS -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
+	
+	
+	<!-- Data Layer -->
+	<script>
+	digitalData = { 
+		page:{
+			pageName: document.pagename,
+			destinationURL: encodeURIComponent(window.location.href),
+			pageType: document.pagetype, 
+			siteSection: document.sitesection,
+			siteSubsection: document.sitesubsection,
+			category: document.category,
+			productID: document.productid,
+			productName: document.productname,
+			revenue: document.revenue,
+			productTotalRevenue: document.producttotalrevenue,
+			productTotalUnits: document.producttotalunits,
+			purchaseID: "",
+
+		}
+	};
+	</script>
+	
+	<!-- Target pre-hiding snippet for async loading via Launch -->
+	<script>
+    	;(function(win, doc, style, timeout) {
+  			var STYLE_ID = 'at-body-style';
+  		function getParent() {
+    		return doc.getElementsByTagName('head')[0];
+  			}
+  		function addStyle(parent, id, def) {
+    		if (!parent) {
+      			return;
+    			}  			
+    	var style = doc.createElement('style');
+    			style.id = id;
+    			style.innerHTML = def;
+    			parent.appendChild(style);
+  			}
+  		function removeStyle(parent, id) {
+    		if (!parent) {
+      			return;
+    			}   			
+    		var style = doc.getElementById(id);
+    			if (!style) {
+      				return;
+    				}
+    		parent.removeChild(style);
+  			}  			
+  		addStyle(getParent(), STYLE_ID, style);
+  		setTimeout(function() {
+    		removeStyle(getParent(), STYLE_ID);
+  			}, 
+  		timeout);
+		}
+		
+		(window, document, "#heroimage {opacity: 0 !important}", 8000));
+	</script>
+	
+
+	<!-- Paste Launch embed code below this line -->
+	
+	<!-- /Launch embed code -->
+
+
+  </head>
+
+  <body>
+  
+	<!-- Website Content-->
+	<div ng-include="'templates/home-header.html'"></div>
+  	<div id="app" ng-view></div>
+	<div ng-include="'templates/home-footer.html'"></div>
+	
+    <!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+	<!-- Our Website Javascripts -->
+	<script src="js/shop-main.js"></script>
+	 
+  </body>
+
+</html>
